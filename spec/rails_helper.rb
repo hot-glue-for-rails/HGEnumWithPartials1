@@ -29,7 +29,31 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+require 'simplecov'
+require 'simplecov-rcov'
+class SimpleCov::Formatter::MergedFormatter
+  def format(result)
+    SimpleCov::Formatter::HTMLFormatter.new.format(result)
+    SimpleCov::Formatter::RcovFormatter.new.format(result)
+  end
+end
+SimpleCov.formatter = SimpleCov::Formatter::MergedFormatter
+SimpleCov.start 'rails' do
+  add_filter "/vendor"
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.ignore_request do |request|
+    ["127.0.0.1", "chromedriver.storage.googleapis.com" ,  "googlechromelabs.github.io", "edgedl.me.gvt1.com"].include? URI(request.uri).host
+  end
+end
+
+
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
