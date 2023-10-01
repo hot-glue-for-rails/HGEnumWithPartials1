@@ -46,6 +46,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_record_query_trace (1.8.2)
+      activerecord (>= 6.0.0)
     activejob (7.0.8)
       activesupport (= 7.0.8)
       globalid (>= 0.3.6)
@@ -72,6 +74,10 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
+    byebug (11.1.3)
     capybara (3.39.2)
       addressable
       matrix
@@ -244,6 +250,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uniform_notifier (1.16.0)
     vcr (6.2.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
@@ -266,7 +273,10 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  active_record_query_trace (~> 1.8)
   bootsnap
+  bullet (~> 7.0)
+  byebug (~> 11.1)
   capybara
   debug
   dotenv-rails (~> 2.8)
