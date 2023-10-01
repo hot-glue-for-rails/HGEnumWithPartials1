@@ -1,4 +1,4 @@
-Node + Ruby versions are in `.node-version` and `.ruby-version`, respectively.
+aNode + Ruby versions are in `.node-version` and `.ruby-version`, respectively.
 
 # Setup
 

@@ -1,0 +1,9 @@
+
+
+<%= turbo_stream.update "__things-list" + "" do %>
+  <%= render partial: "list", locals: {things: @things } %>
+<% end %>
+
+<%= turbo_stream.update "flash_notices" do %>
+<%= render partial: "layouts/flash_notices", locals: {resource: @thing} %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "__thing-new" do %>
+  <h3>
+    New Thing
+  </h3>
+  <%= form_with model:  thing, url: things_path, method: :post do  |f| %>
+    <%=  render partial: "things/form",
+locals: { thing: thing, f: f} %>
+ <% end %>
+<% end %>

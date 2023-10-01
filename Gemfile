@@ -89,6 +89,6 @@ gem "byebug", "~> 11.1", :groups => [:development, :test]
 
 gem "rubycritic", "~> 4.8", :group => :dev
 
-gem "hot-glue", "~> 0.5.22"
+gem "hot-glue", path: "/Users/jason/Work/Hot_Glue/hot-glue-private"
 
 gem "cssbundling-rails", "~> 1.3"

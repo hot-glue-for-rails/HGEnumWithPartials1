@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "__#{dom_id(@thing)}" do %>
+  <%= render partial: 'line', locals: {thing: @thing } %>
+<% end %>
+
+<%= turbo_stream.update "flash_notices" do %>
+  <%= render partial: "layouts/flash_notices", locals: {resource: @thing} %>
+<% end %>

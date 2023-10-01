@@ -1,0 +1,38 @@
+<%= turbo_frame_tag "__things-list"   do %>
+  <div class="container ">
+    
+      <h4>
+        THINGS
+      </h4>
+    
+
+    <%= render partial: "things/new_button", locals: {} %><br />
+
+    
+      
+        <div class="row ">
+          <div class='col-sm-2 heading--thing--name' >Name</div>
+<div class='col-sm-2 heading--thing--status' >Status</div>
+
+          
+
+          <div class=' scaffold-col-heading scaffold-col-heading-buttons col-sm-2' >
+          </div>
+        </div>
+      
+
+      <% if things.empty? %>
+    <div>
+        None
+    </div>
+      <% end %>
+      <% things.each do |thing| %>
+        <%= render partial: 'things/line', locals: {thing: thing}
+            .merge(defined?(nested_for) ? {nested_for: nested_for} : {})
+      
+        %>
+      <% end %>
+    <% if things.respond_to?(:total_pages) %><%= paginate(things) %> <% end %>
+  
+  </div>
+<% end %>

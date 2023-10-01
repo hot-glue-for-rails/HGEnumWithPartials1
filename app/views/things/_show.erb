@@ -1,0 +1,24 @@
+<div class='col-sm-2 thing--name'> <%= thing.name %></div>
+<div class='col-sm-2 thing--status'> 
+    <% if thing.status.nil? %>
+        <span class='alert-danger'>Missing status</span>
+    <% else %><%=  render partial: thing.status, locals: { thing: thing } %><% end %></div>
+
+
+
+
+
+
+<div class=" scaffold-line-buttons col-md-2" >
+  
+
+  
+    <%= form_with url: thing_path(thing), html: {data: {'turbo-confirm': "Are you sure you want to delete #{ thing.name }?"}, style: "display: inline-block;"}, method: :delete do |f| %>
+      <%= f.submit "Delete".html_safe,  class: "delete-thing-button btn btn-primary btn-sm" %>
+    <% end %>
+  
+
+  
+  <%= link_to "Edit ".html_safe, edit_thing_path(thing), disable_with: "Loading...", class: "edit-thing-button btn btn-primary btn-sm" %>
+  
+</div>
