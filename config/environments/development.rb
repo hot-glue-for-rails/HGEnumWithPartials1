@@ -1,6 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.sass.inline_source_maps = true
   config.after_initialize do
     Bullet.enable        = true
     Bullet.alert         = false
